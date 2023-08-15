@@ -88,7 +88,7 @@ function submitSearch(event) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", submitSearch);
 
-searchKey("Berlin");
+searchKey("Chicago");
 
 //Temperature
 function showCelTemp(tempC) {
