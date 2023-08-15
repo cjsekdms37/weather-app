@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Fjalla+One&family=Poppins:wght@200;300;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <link rel="stylesheet" href="src/style.css" />
+
+  <body>
+    <div class="container bodyBox">
+      <div class="flex-container topBox">
+        <div class="flexbox-item flexBox1">
+          <ul class="todaysDate">
+            <li class="weekDay">Thursday</li>
+            <li class="presentDate">
+              <span id="todayMonth">September</span>
+              <span id="todayDate">13</span>, <span id="todayYear">2022</span>
+            </li>
+          </ul>
+        </div>
+        <div class="flexbox-item flexBox2">
+          <h1 id="the-city">Chicago</h1>
+          <h2>
+            <span id="today-degrees"> 17 </span
+            ><span class="degrees"><a href="" id="today-cel"> ℃</a>|</span
+            ><span><a href="" class="degrees" id="today-fah">℉</a></span>
+          </h2>
+
+          <div class="presentWeatherEmoji">🌥️</div>
+          <div class="presentWeather">Partly Cloudy</div>
+        </div>
+        <div class="flexbox-item flexBox3">
+          <ul class="presentConditions">
+            <li>Humidity: <span id="humidity-percentage">69</span>%</li>
+            <li>Wind: <span id="wind-speed">14</span> m/s</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flexbox-container bottomBox">
+        <div class="flexbox-item flexBox4">
+          <div class="weekDay">Friday</div>
+          <div class="weeklyEmoji">🌥️</div>
+          <div class="weeklyTemperature">28°</div>
+        </div>
+
+        <div class="flexbox-item flexBox5">
+          <div class="weekDay">Saturday</div>
+          <div class="weeklyEmoji">⛈️</div>
+          <div class="weeklyTemperature">31°</div>
+        </div>
+
+        <div class="flexbox-item flexBox6">
+          <div class="weekDay">Sunday</div>
+          <div class="weeklyEmoji">🌥️</div>
+          <div class="weeklyTemperature">28°</div>
+        </div>
+
+        <div class="flexbox-item flexBox6">
+          <div class="weekDay">Monday</div>
+          <div class="weeklyEmoji">🌧️</div>
+          <div class="weeklyTemperature">29°</div>
+        </div>
+
+        <div class="flexbox-item flexBox6">
+          <div class="weekDay">Tuesday</div>
+          <div class="weeklyEmoji">🌥️</div>
+          <div class="weeklyTemperature">27°</div>
+        </div>
+      </div>
+
+      <div class="searchEngine">
+        <form id="search-form">
+          <div class="searchBox">
+            <input
+              class="searchCity"
+              type="search"
+              placeholder="Enter city here"
+              id="search-input"
+            />
+            <input class="searchBtn" type="submit" value="Search" />
+            <button id="current-location-button">Current</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
