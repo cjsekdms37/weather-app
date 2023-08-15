@@ -173,3 +173,25 @@ ul {
   font-size: 25px;
   color: black;
 }
+
+.coder-info {
+  text-align: center;
+}
+
+.github-link {
+  color: #5c77b7;
+}
+
+.github-link:hover {
+  color: #fb6ac1;
+  text-decoration: underline;
+}
+
+.host-netlify {
+  color: #5c77b7;
+}
+
+.host-netlify:hover {
+  color: #fb6ac1;
+  text-decoration: underline;
+}
