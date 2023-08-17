@@ -1,52 +1,47 @@
-let now = new Date();
+// Month Date Year
+function showDateToday(timestamp) {
+  let now = new Date(timestamp);
+  let theMonths = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let theMonth = theMonths[now.getMonth()];
+  let theDate = now.getDate();
+  let theYear = now.getFullYear();
+  return `${theMonth} ${theDate}, ${theYear}`;
+}
 
 // Week Days
-let weekDay = document.querySelector(".weekDay");
-let theDays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let theDay = theDays[now.getDay()];
-weekDay.innerHTML = `${theDay}`;
+function cityDay(time) {
+  let now = new Date(time);
+  let theDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
-// Months
-let todayMonth = document.querySelector("#todayMonth");
-let theMonths = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-let theMonth = theMonths[now.getMonth()];
-todayMonth.innerHTML = `${theMonth}`;
-
-// Date
-let todayDate = document.querySelector("#todayDate");
-let theDate = now.getDate();
-todayDate.innerHTML = `${theDate}`;
-
-// Year
-let todayYear = document.querySelector("#todayYear");
-let theYear = now.getFullYear();
-todayYear.innerHTML = `${theYear}`;
+  let theDay = theDays[now.getDay()];
+  return `${theDay}`;
+}
 
 // City
 function showData(response) {
-  console.log(response);
+  console.log(response.data);
   let cityName = response.data.city;
   let theCity = document.querySelector("#the-city");
   theCity.innerHTML = cityName;
@@ -69,6 +64,12 @@ function showData(response) {
   let humidity = response.data.temperature.humidity;
   let humidityPercent = document.querySelector("#humidity-percentage");
   humidityPercent.innerHTML = humidity;
+
+  let currentDay = document.querySelector(".weekDay");
+  currentDay.innerHTML = cityDay(response.data.time * 1000);
+
+  let theCurrentDate = document.querySelector(".presentDate");
+  theCurrentDate.innerHTML = showDateToday(response.data.time * 1000);
 }
 
 function searchKey(city) {
