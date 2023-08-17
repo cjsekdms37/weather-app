@@ -41,7 +41,7 @@ function cityDay(time) {
 
 // City
 function showData(response) {
-  console.log(response.data);
+  console.log(response);
   let cityName = response.data.city;
   let theCity = document.querySelector("#the-city");
   theCity.innerHTML = cityName;
@@ -70,6 +70,14 @@ function showData(response) {
 
   let theCurrentDate = document.querySelector(".presentDate");
   theCurrentDate.innerHTML = showDateToday(response.data.time * 1000);
+
+  let weatherIcon = response.data.condition.icon;
+  let currentWeatherIcon = document.querySelector("#weather-icon");
+  currentWeatherIcon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherIcon}.png`
+  );
+  currentWeatherIcon.setAttribute("alt", response.data.condition.icon);
 }
 
 function searchKey(city) {
@@ -83,7 +91,12 @@ function searchKey(city) {
 function submitSearch(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input").value;
+  let input = document.querySelector("#search-input");
   searchKey(searchInput);
+  if (input.value === "") {
+    input.placeholder = `Please enter a city`;
+    searchKey("Chicago");
+  }
 }
 
 let searchForm = document.querySelector("#search-form");
@@ -142,7 +155,6 @@ function showLocationInfo(location) {
 }
 
 function userPosition(position) {
-  console.log(position);
   let longitude = position.coords.longitude;
   let latitude = position.coords.latitude;
   let unit = `metric`;
