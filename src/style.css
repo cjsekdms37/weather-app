@@ -24,6 +24,11 @@ ul {
   margin-top: 70px;
 }
 
+.big {
+  font-size: 25px;
+  color: black;
+}
+
 .bodyBox {
   display: block;
   margin: 20px auto;
@@ -36,21 +41,16 @@ ul {
   font-family: "Poppins", sans-serif;
 }
 
-.topBox {
-  display: flex;
-  justify-content: center;
-  background: rgb(173, 216, 230, 0.2);
-  border-radius: 15px;
-  margin: 5px auto;
-  padding-bottom: 10px;
-}
-
 .bottomBox {
   display: flex;
   text-align: center;
   justify-content: center;
   font-size: 22px;
   margin-top: 10px;
+}
+
+.coder-info {
+  text-align: center;
 }
 
 .degrees {
@@ -115,6 +115,24 @@ ul {
   flex-basis: 0;
 }
 
+.github-link {
+  color: #5c77b7;
+}
+
+.github-link:hover {
+  color: #fb6ac1;
+  text-decoration: underline;
+}
+
+.host-netlify {
+  color: #5c77b7;
+}
+
+.host-netlify:hover {
+  color: #fb6ac1;
+  text-decoration: underline;
+}
+
 .presentWeatherEmoji {
   font-size: 70px;
   line-height: 50px;
@@ -152,12 +170,17 @@ ul {
   font-family: "Poppins", sans-serif;
 }
 
-.weeklyEmoji {
-  font-size: 55px;
+.topBox {
+  display: flex;
+  justify-content: center;
+  background: rgb(173, 216, 230, 0.2);
+  border-radius: 15px;
+  margin: 5px auto;
+  padding-bottom: 10px;
 }
 
-#search-input {
-  text-transform: capitalize;
+.weeklyEmoji {
+  font-size: 55px;
 }
 
 #current-location-button {
@@ -170,29 +193,6 @@ ul {
   font-family: "Poppins", sans-serif;
 }
 
-.big {
-  font-size: 25px;
-  color: black;
-}
-
-.coder-info {
-  text-align: center;
-}
-
-.github-link {
-  color: #5c77b7;
-}
-
-.github-link:hover {
-  color: #fb6ac1;
-  text-decoration: underline;
-}
-
-.host-netlify {
-  color: #5c77b7;
-}
-
-.host-netlify:hover {
-  color: #fb6ac1;
-  text-decoration: underline;
+#search-input {
+  text-transform: capitalize;
 }
