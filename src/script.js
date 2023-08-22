@@ -78,6 +78,8 @@ function showData(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherIcon}.png`
   );
   currentWeatherIcon.setAttribute("alt", response.data.condition.icon);
+
+  celciusTemperature = response.data.temperature.current;
 }
 
 function searchKey(city) {
@@ -108,7 +110,7 @@ searchKey("Chicago");
 function showCelTemp(tempC) {
   tempC.preventDefault();
   let temperatureCelElement = document.querySelector("#today-degrees");
-  temperatureCelElement.innerHTML = 20;
+  temperatureCelElement.innerHTML = Math.round(celciusTemperature);
   let celLink = document.querySelector("#today-cel");
   celLink.classList.add("big");
   let fahLink = document.querySelector("#today-fah");
@@ -121,7 +123,7 @@ celLink.addEventListener("click", showCelTemp);
 function showFahTemp(tempF) {
   tempF.preventDefault();
   let temperatureFahElement = document.querySelector("#today-degrees");
-  temperatureFahElement.innerHTML = 68;
+  temperatureFahElement.innerHTML = Math.round(celciusTemperature * 1.8 + 32);
   let celLink = document.querySelector("#today-cel");
   celLink.classList.remove("big");
   let fahLink = document.querySelector("#today-fah");
@@ -170,3 +172,5 @@ function getCurrentPosition() {
 
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentPosition);
+
+let celciusTemperature = null;
