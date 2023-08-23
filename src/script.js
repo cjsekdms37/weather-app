@@ -40,6 +40,14 @@ function cityDay(time) {
 }
 
 // City
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let unit = `metric`;
+  let apiKey = "b6d6abf04ta9967430a746of97dac003";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}$units=${unit}`;
+  console.log(apiUrl);
+}
+
 function showData(response) {
   console.log(response);
   let cityName = response.data.city;
@@ -80,6 +88,8 @@ function showData(response) {
   currentWeatherIcon.setAttribute("alt", response.data.condition.icon);
 
   celciusTemperature = response.data.temperature.current;
+
+  getForecast(response.data.coordinates);
 }
 
 function searchKey(city) {
