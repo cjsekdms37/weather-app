@@ -40,12 +40,17 @@ function cityDay(time) {
 }
 
 // City
-function getForecast(coordinates) {
-  console.log(coordinates);
-  let unit = `metric`;
-  let apiKey = "b6d6abf04ta9967430a746of97dac003";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}$units=${unit}`;
-  console.log(apiUrl);
+function displayForecast(response) {
+  let boxOneDay = document.querySelector("#boxOne");
+
+  console.log(response.data.daily);
+}
+
+function getForecast(city) {
+  console.log(city);
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=b6d6abf04ta9967430a746of97dac003&units=metric
+`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showData(response) {
@@ -89,7 +94,7 @@ function showData(response) {
 
   celciusTemperature = response.data.temperature.current;
 
-  getForecast(response.data.coordinates);
+  getForecast(response.data.city);
 }
 
 function searchKey(city) {
