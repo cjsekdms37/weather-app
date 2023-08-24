@@ -267,6 +267,93 @@ function showLocationInfo(location) {
   let locationHumidity = location.data.daily[0].temperature.humidity;
   let locationHumidityPercent = document.querySelector("#humidity-percentage");
   locationHumidityPercent.innerHTML = locationHumidity;
+
+  let dailyForecast = location.data.daily;
+
+  // Forecast Box One
+  let boxOneForecast = document.querySelector("#box-one-day");
+  boxOneForecast.innerHTML = forecastDayFormat(location.data.daily[1].time);
+
+  let iconOne = document.querySelector("#weather-icon-one");
+  let weatherIconOne = dailyForecast[1].condition.icon;
+  iconOne.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherIconOne}.png`
+  );
+  iconOne.setAttribute("alt", dailyForecast[1].condition.icon);
+
+  let forecastOneMax = document.querySelector("#first-box-max");
+  forecastOneMax.innerHTML = Math.round(dailyForecast[1].temperature.maximum);
+  let forecastOneMin = document.querySelector("#first-box-min");
+  forecastOneMin.innerHTML = Math.round(dailyForecast[1].temperature.minimum);
+
+  // Forecast Box Two
+  let boxTwoDay = document.querySelector("#box-two-day");
+  boxTwoDay.innerHTML = forecastDayFormat(dailyForecast[2].time);
+
+  let iconTwo = document.querySelector("#weather-icon-two");
+  let weatherIconTwo = dailyForecast[2].condition.icon;
+  iconOne.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherIconTwo}.png`
+  );
+  iconTwo.setAttribute("alt", dailyForecast[2].condition.icon);
+
+  let forecastTwoMax = document.querySelector("#second-box-max");
+  forecastTwoMax.innerHTML = Math.round(dailyForecast[2].temperature.maximum);
+  let forecastTwoMin = document.querySelector("#second-box-min");
+  forecastTwoMin.innerHTML = Math.round(dailyForecast[2].temperature.minimum);
+
+  // Forecast Box Three
+  let boxThreeDay = document.querySelector("#box-three-day");
+  boxThreeDay.innerHTML = forecastDayFormat(dailyForecast[3].time);
+
+  let iconThree = document.querySelector("#weather-icon-three");
+  let weatherIconThree = dailyForecast[3].condition.icon;
+  iconThree.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherIconThree}.png`
+  );
+  iconThree.setAttribute("alt", dailyForecast[3].condition.icon);
+
+  let forecastThreeMax = document.querySelector("#third-box-max");
+  forecastThreeMax.innerHTML = Math.round(dailyForecast[3].temperature.maximum);
+  let forecastThreeMin = document.querySelector("#third-box-min");
+  forecastThreeMin.innerHTML = Math.round(dailyForecast[3].temperature.minimum);
+
+  // Forecast Box Four
+  let boxFourDay = document.querySelector("#box-four-day");
+  boxFourDay.innerHTML = forecastDayFormat(dailyForecast[4].time);
+
+  let iconFour = document.querySelector("#weather-icon-four");
+  let weatherIconFour = dailyForecast[4].condition.icon;
+  iconFour.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherIconFour}.png`
+  );
+  iconFour.setAttribute("alt", dailyForecast[4].condition.icon);
+
+  let forecastFourMax = document.querySelector("#fourth-box-max");
+  forecastFourMax.innerHTML = Math.round(dailyForecast[4].temperature.maximum);
+  let forecastFourMin = document.querySelector("#fourth-box-min");
+  forecastFourMin.innerHTML = Math.round(dailyForecast[4].temperature.minimum);
+
+  // Forecast Box Five
+  let boxFiveDay = document.querySelector("#box-five-day");
+  boxFiveDay.innerHTML = forecastDayFormat(dailyForecast[5].time);
+
+  let iconFive = document.querySelector("#weather-icon-five");
+  let weatherIconFive = dailyForecast[5].condition.icon;
+  iconFive.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherIconFive}.png`
+  );
+  iconFive.setAttribute("alt", dailyForecast[5].condition.icon);
+
+  let forecastFiveMax = document.querySelector("#fifth-box-max");
+  forecastFiveMax.innerHTML = Math.round(dailyForecast[5].temperature.maximum);
+  let forecastFiveMin = document.querySelector("#fifth-box-min");
+  forecastFiveMin.innerHTML = Math.round(dailyForecast[5].temperature.minimum);
 }
 
 function userPosition(position) {
