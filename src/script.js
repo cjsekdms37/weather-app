@@ -52,18 +52,21 @@ function forecastDayFormat(timestamp) {
     "Friday",
     "Saturday",
   ];
+
   return days[day];
 }
 
 function displayForecast(response) {
   let dailyForecast = response.data.daily;
   forecastDayFormat(dailyForecast);
+  console.log(response);
   // Forecast Box One
   let boxOneDay = document.querySelector("#box-one-day");
   boxOneDay.innerHTML = forecastDayFormat(dailyForecast[1].time);
 
   let iconOne = document.querySelector("#weather-icon-one");
   let weatherIconOne = dailyForecast[1].condition.icon;
+
   iconOne.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherIconOne}.png`
@@ -81,7 +84,7 @@ function displayForecast(response) {
 
   let iconTwo = document.querySelector("#weather-icon-two");
   let weatherIconTwo = dailyForecast[2].condition.icon;
-  iconOne.setAttribute(
+  iconTwo.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherIconTwo}.png`
   );
@@ -271,8 +274,8 @@ function showLocationInfo(location) {
   let dailyForecast = location.data.daily;
 
   // Forecast Box One
-  let boxOneForecast = document.querySelector("#box-one-day");
-  boxOneForecast.innerHTML = forecastDayFormat(location.data.daily[1].time);
+  let boxOneDay = document.querySelector("#box-one-day");
+  boxOneDay.innerHTML = forecastDayFormat(dailyForecast[1].time);
 
   let iconOne = document.querySelector("#weather-icon-one");
   let weatherIconOne = dailyForecast[1].condition.icon;
@@ -293,7 +296,7 @@ function showLocationInfo(location) {
 
   let iconTwo = document.querySelector("#weather-icon-two");
   let weatherIconTwo = dailyForecast[2].condition.icon;
-  iconOne.setAttribute(
+  iconTwo.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherIconTwo}.png`
   );

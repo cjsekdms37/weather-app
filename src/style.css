@@ -24,11 +24,6 @@ ul {
   margin-top: 70px;
 }
 
-.big {
-  font-size: 25px;
-  color: black;
-}
-
 .bodyBox {
   display: block;
   margin: 20px auto;
@@ -57,6 +52,11 @@ ul {
   font-size: 20px;
   position: relative;
   top: -45px;
+}
+
+.big {
+  font-size: 25px;
+  color: black;
 }
 
 .flexBox1 {
@@ -113,6 +113,10 @@ ul {
   padding: 10px 10px;
   flex-grow: 1;
   flex-basis: 0;
+}
+
+.forecast-min {
+  opacity: 0.6;
 }
 
 .github-link {
@@ -195,8 +199,4 @@ ul {
 
 #search-input {
   text-transform: capitalize;
-}
-
-.forecast-min {
-  opacity: 0.6;
 }
