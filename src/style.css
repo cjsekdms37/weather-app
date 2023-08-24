@@ -196,3 +196,7 @@ ul {
 #search-input {
   text-transform: capitalize;
 }
+
+.forecast-min {
+  opacity: 0.6;
+}
