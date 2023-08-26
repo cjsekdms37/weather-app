@@ -148,7 +148,6 @@ function displayForecast(response) {
 }
 
 function getForecast(city) {
-  console.log(city);
   let unit = `imperial`;
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=b6d6abf04ta9967430a746of97dac003&units=${unit}
 `;
@@ -163,9 +162,6 @@ function showData(response) {
   let temperatureCel = Math.round(response.data.temperature.current);
   let temperature = document.querySelector("#today-degrees");
   temperature.innerHTML = temperatureCel;
-  celLink.classList.add("big");
-  let fahLink = document.querySelector("#today-fah");
-  fahLink.classList.remove("big");
 
   let windSpeed = Math.round(response.data.wind.speed);
   let windElement = document.querySelector("#wind-speed");
@@ -193,7 +189,7 @@ function showData(response) {
   );
   currentWeatherIcon.setAttribute("alt", response.data.condition.icon);
 
-  celciusTemperature = response.data.temperature.current;
+  currentTemperature = response.data.temperature.current;
 
   getForecast(response.data.city);
 }
@@ -223,34 +219,15 @@ searchForm.addEventListener("submit", submitSearch);
 searchKey("Chicago");
 
 //Temperature
-function showCelTemp(tempC) {
-  tempC.preventDefault();
-  let temperatureCelElement = document.querySelector("#today-degrees");
-  temperatureCelElement.innerHTML = Math.round(celciusTemperature);
-  let celLink = document.querySelector("#today-cel");
-  celLink.classList.add("big");
-  let fahLink = document.querySelector("#today-fah");
-  fahLink.classList.remove("big");
-}
-
-let celLink = document.querySelector("#today-cel");
-celLink.addEventListener("click", showCelTemp);
 
 function showFahTemp(tempF) {
   tempF.preventDefault();
   let temperatureFahElement = document.querySelector("#today-degrees");
-  temperatureFahElement.innerHTML = Math.round(celciusTemperature * 1.8 + 32);
-  let celLink = document.querySelector("#today-cel");
-  celLink.classList.remove("big");
-  let fahLink = document.querySelector("#today-fah");
-  fahLink.classList.add("big");
+  temperatureFahElement.innerHTML = Math.round(currentTemperature);
 }
-let fahLink = document.querySelector("#today-fah");
-fahLink.addEventListener("click", showFahTemp);
 
 // Geolocation
 function showLocationInfo(location) {
-  console.log(location);
   let locationTemperature = Math.round(location.data.daily[0].temperature.day);
   let temperatureElement = document.querySelector("#today-degrees");
   temperatureElement.innerHTML = locationTemperature;
@@ -376,4 +353,4 @@ function getCurrentPosition() {
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentPosition);
 
-let celciusTemperature = null;
+let currentTemperature = null;
