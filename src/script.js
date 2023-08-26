@@ -250,6 +250,14 @@ function showLocationInfo(location) {
 
   let dailyForecast = location.data.daily;
 
+  let presentEmoji = document.querySelector("#weather-icon");
+  let weatherIconZero = dailyForecast[0].condition.icon;
+  presentEmoji.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherIconZero}.png`
+  );
+  presentEmoji.setAttribute("alt", dailyForecast[0].condition.icon);
+
   // Forecast Box One
   let boxOneDay = document.querySelector("#box-one-day");
   boxOneDay.innerHTML = forecastDayFormat(dailyForecast[1].time);
