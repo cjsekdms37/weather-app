@@ -207,7 +207,7 @@ function submitSearch(event) {
   let searchInput = document.querySelector("#search-input").value;
   let input = document.querySelector("#search-input");
   searchKey(searchInput);
-  if (input.value === "") {
+  if (searchInput === "" || searchInput === undefined) {
     input.placeholder = `Please enter a city`;
     searchKey("Chicago");
   }
