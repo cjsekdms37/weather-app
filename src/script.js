@@ -59,7 +59,7 @@ function forecastDayFormat(timestamp) {
 function displayForecast(response) {
   let dailyForecast = response.data.daily;
   forecastDayFormat(dailyForecast);
-  console.log(response);
+
   // Forecast Box One
   let boxOneDay = document.querySelector("#box-one-day");
   boxOneDay.innerHTML = forecastDayFormat(dailyForecast[1].time);
@@ -149,13 +149,13 @@ function displayForecast(response) {
 
 function getForecast(city) {
   console.log(city);
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=b6d6abf04ta9967430a746of97dac003&units=metric
+  let unit = `imperial`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=b6d6abf04ta9967430a746of97dac003&units=${unit}
 `;
   axios.get(apiUrl).then(displayForecast);
 }
 
 function showData(response) {
-  console.log(response);
   let cityName = response.data.city;
   let theCity = document.querySelector("#the-city");
   theCity.innerHTML = cityName;
@@ -199,7 +199,7 @@ function showData(response) {
 }
 
 function searchKey(city) {
-  let unit = `metric`;
+  let unit = "imperial";
   let apiKey = "b6d6abf04ta9967430a746of97dac003";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${unit}`;
 
@@ -362,7 +362,7 @@ function showLocationInfo(location) {
 function userPosition(position) {
   let longitude = position.coords.longitude;
   let latitude = position.coords.latitude;
-  let unit = `metric`;
+  let unit = `imperial`;
   let apiKey = "b6d6abf04ta9967430a746of97dac003";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=${unit}`;
 
