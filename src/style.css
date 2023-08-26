@@ -46,6 +46,8 @@ ul {
 
 .coder-info {
   text-align: center;
+  position: relative;
+  top: -15px;
 }
 
 .degrees {
