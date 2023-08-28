@@ -155,6 +155,9 @@ function getForecast(city) {
 }
 
 function showData(response) {
+  if (!response.data.city) {
+    return;
+  }
   let cityName = response.data.city;
   let theCity = document.querySelector("#the-city");
   theCity.innerHTML = cityName;
